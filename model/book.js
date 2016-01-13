@@ -84,12 +84,12 @@ var books = [
 
 function findIndex(id) {
     return books.map(function (book) {
-        return book.ID
+        return String(book.ID)
     }).indexOf(id)
 }
 
 exports.createBook = function (data,cb) {
-    var bookIndex = findIndex(data.id)
+    var bookIndex = findIndex(data.id);
     if (bookIndex > -1) {
         cb("Book existed")
     } else {

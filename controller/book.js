@@ -28,3 +28,13 @@ exports.deleteMultiBooks = function (req, res) {
 exports.updateMultiBooks = function (req, res) {
     res.json("update")
 };
+
+exports.getBook = function (req,res) {
+    bookDB.getBook(req.params.id, function (err,data) {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(data)
+        }
+    })
+}
