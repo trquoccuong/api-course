@@ -5,6 +5,6 @@ var bookRoute = require("./route/book");
 
 app.use(morgan("dev"));
 
-app.use("/",bookRoute);
+app.use("/api",bookRoute);
 
 app.listen(3000);
