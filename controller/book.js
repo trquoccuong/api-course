@@ -12,7 +12,13 @@ exports.getListBooks = function (req, res) {
 };
 
 exports.createNewBook = function (req, res) {
-    res.json("post")
+    bookDB.createBook(req.body, function (err,data) {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(data)
+        }
+    })
 };
 
 exports.deleteMultiBooks = function (req, res) {

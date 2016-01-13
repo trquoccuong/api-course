@@ -7,8 +7,8 @@ var bookController = require("../controller/book");
 router.route("/books")
     .get(bookController.getListBooks)
     .post(bookController.createNewBook)
-    .delete(bookController.deleteMultiBooks)
-    .put(bookController.updateMultiBooks)
+
+
 
 
 module.exports = router;
