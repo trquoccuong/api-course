@@ -1,5 +1,8 @@
 "use strict";
 
 exports.getListBooks = function (req,res) {
-    res.send("books list")
+    res.json({
+        "demo" : "Hello"
+    })
 };
+
