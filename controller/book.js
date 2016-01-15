@@ -26,7 +26,15 @@ exports.createNewBook = function (req, res) {
 };
 
 exports.deleteMultiBooks = function (req, res) {
-    res.json("delete")
+    var arrayID = req.body.ids.split(" ");
+    var sentinel = 0;
+    arrayID.forEach(function (id) {
+        Book.findOneAndRemove({ID : id}, function (err) {
+            if(++sentinel === arrayID.length) {
+                res.status(202).json();
+            }
+        })
+    })
 };
 
 exports.updateMultiBooks = function (req, res) {
