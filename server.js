@@ -5,9 +5,9 @@ var bodyParser = require("body-parser");
 var bookRoute = require("./route/book");
 var errors = require("./errors");
 var mongoose = require("mongoose");
-var connString ="mongodb://localhost:27017/demoApi"
-
+var connString ="mongodb://localhost:27017/demoApi";
 mongoose.connect(connString);
+global.Book = require("./model/book");
 
 app.use(morgan("dev"));
 // parse application/x-www-form-urlencoded

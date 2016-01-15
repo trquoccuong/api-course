@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+
 var bookSchema = new mongoose.Schema({
     ID: Number,
     Title: String,
@@ -8,6 +9,8 @@ var bookSchema = new mongoose.Schema({
     isbn: {
         type: String,
         require: true,
-        unique : true
+        unique: true
     }
 });
+
+module.exports = mongoose.model("book",bookSchema,"book");
