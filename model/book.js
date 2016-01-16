@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var reviewSchema = require("./review");
 
 var bookSchema = new mongoose.Schema({
     ID: Number,
@@ -10,7 +11,8 @@ var bookSchema = new mongoose.Schema({
         type: String,
         require: true,
         unique: true
-    }
+    },
+    reviews : [reviewSchema]
 });
 
 module.exports = mongoose.model("book",bookSchema,"book");
