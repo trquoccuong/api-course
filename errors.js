@@ -10,5 +10,10 @@ module.exports = {
         code: 2,
         message : "Khong tim route",
         description: "Route cung cap sai"
+    },
+    reviewNotExists : {
+        code: 3,
+        message : "Khong tim thay review",
+        description: "Sai review id"
     }
 }
