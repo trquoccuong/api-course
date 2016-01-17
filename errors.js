@@ -15,5 +15,10 @@ module.exports = {
         code: 3,
         message : "Khong tim thay review",
         description: "Sai review id"
+    },
+    notEnoughInformation : {
+        code : 4,
+        message : "Can day du thong tin cac truong",
+        description: "Thieu du lieu"
     }
 }
