@@ -15,7 +15,7 @@ exports.register = function (req, res) {
             }
         });
     } else {
-        res.status(404).json()
+        res.status(400).json(errors.notEnoughInformation)
     }
 };
 
@@ -26,7 +26,7 @@ exports.login = function (req, res) {
     passport.authenticate("local", function (err, user, info) {
         if (err) return res.status(404).json(err);
         if (user) {
-            token = User.generateJwt();
+            var token = user.generateJWT();
             res.status(200).json({
                 token: token
             })

@@ -1,5 +1,4 @@
 "use strict";
-var bookDB = require("../model/book");
 var errors = require("../errors");
 
 exports.getListBooks = function (req, res) {
@@ -31,7 +30,7 @@ exports.deleteMultiBooks = function (req, res) {
     arrayID.forEach(function (id) {
         Book.findOneAndRemove({ID : id}, function (err) {
             if(++sentinel === arrayID.length) {
-                res.status(202).json();
+                res.status(204).json();
             }
         })
     })
@@ -64,7 +63,7 @@ exports.updateBook = function (req,res) {
             data.isbn= req.body.isbn || data.isbn;
             data.save(function (err) {
                 if (err) return res.json(err);
-                res.status(202).json();
+                res.status(200).json(data);
             })
         }
     });
@@ -73,6 +72,6 @@ exports.updateBook = function (req,res) {
 exports.deleteBook = function (req, res) {
     Book.findOneAndRemove({ID : req.params.id}, function (err) {
         if (err) return res.json(err);
-        res.status(202).json();
+        res.status(204).json();
     })
 };

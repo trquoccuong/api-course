@@ -7,9 +7,8 @@ var reviewController = require("../controller/review");
 var config = require("../config");
 var jwt = require('express-jwt');
 var auth = jwt({
-    secret: config.secretKey,
-    userProperty: 'payload'
-})
+    secret: config.secretKey
+});
 
 router.route("/books")
     .get(bookController.getListBooks)
