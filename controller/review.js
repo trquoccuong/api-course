@@ -5,7 +5,11 @@ exports.getListReviews = function (req, res) {
     Book.findOne({ID: req.params.bookId})
         .exec(function (err, data) {
             if (err) return res.json(err);
-            res.json(data.reviews);
+            if (data) {
+                res.json(data.reviews);
+            } else {
+                res.status(404).json(errors.bookNotExists)
+            }
         })
 };
 
@@ -55,8 +59,8 @@ exports.updateReview = function (req, res) {
                 var review = bookInfo.reviews.id(req.params.reviewId);
                 if (review) {
                     review.author = req.body.author || review.author;
-                    review.rating = req.body.rating ||review.rating;
-                    review.content = req.body.content ||review.content;
+                    review.rating = req.body.rating || review.rating;
+                    review.content = req.body.content || review.content;
                     bookInfo.save(function (err) {
                         if (err) return res.json(err);
                         res.status(202).json();
