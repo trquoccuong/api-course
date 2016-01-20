@@ -20,5 +20,10 @@ module.exports = {
         code : 4,
         message : "Can day du thong tin cac truong",
         description: "Thieu du lieu"
+    },
+    limitRate :{
+        code : 5,
+        message: "Qua nhieu request",
+        description: "So luong request vuot qua 100"
     }
 }
