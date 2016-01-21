@@ -12,6 +12,7 @@ mongoose.connect(connString);
 global.Book = require("./model/book");
 global.User = require("./model/user");
 global.Bucket = require("./model/bucket");
+
 require("./passport");
 var limitRate = require("./middleware/limitRate");
 app.use(morgan("dev"));

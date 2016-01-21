@@ -19,6 +19,12 @@ var RateBuckets = new mongoose.Schema({
         min: 0,
         max: config.rateLimits.maxHits
     }
-})
+});
+
 
 module.exports = mongoose.model('bucket', RateBuckets);
+
+mongoose.model('bucket').ensureIndexes(function(err) {
+    console.log('ensure index', err)
+});
+
