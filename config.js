@@ -6,4 +6,5 @@ module.exports = {
         ttl: 60*1000,
         maxHits: 10
     }
+    ádasdsa
 }
